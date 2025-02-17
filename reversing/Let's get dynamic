@@ -1,4 +1,1 @@
-Bài này vẫn là 1 bài C, nhưng thường lệ thì mình vẫn sẽ sử dụng ghidra, và debugger GDB theo hint của đề bài.
-Vì bài cho file .S nên mình sẽ sử dụng gcc để có file ELF --> debug 
 
-![](https://raw.githubusercontent.com/Nam-Duong427/CTF/refs/heads/main/reversing/Screenshot%202025-02-14%20192453.png)
