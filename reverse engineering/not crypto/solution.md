@@ -463,3 +463,27 @@ So I will put my break point in that memcmp function to see the Stack.
 gef➤  b *0x5555555553b9
 Breakpoint 1 at 0x5555555553b9
 ```
+And then run the program with a random string. 
+```GDB
+[ Legend: Modified register | Code | Heap | Stack | String ]
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
+$rax   : 0x10              
+$rbx   : 0x00007fffffffdd80  →  0x0000000000000000
+$rcx   : 0xa4              
+$rdx   : 0x40              
+$rsp   : 0x00007fffffffdbc0  →  0x0000000000000000
+$rbp   : 0xa1              
+$rsi   : 0x00007fffffffdc30  →  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[...]"
+$rdi   : 0x00007fffffffdd40  →  "picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but[...]"
+$rip   : 0x00005555555553b9  →   call 0x555555555060 <memcmp@plt>
+$r8    : 0xba              
+$r9    : 0x96              
+$r10   : 0xf0              
+$r11   : 0x6a              
+$r12   : 0x97              
+$r13   : 0x73              
+$r14   : 0xf9              
+$r15   : 0x3a              
+$eflags: [ZERO carry PARITY adjust sign trap INTERRUPT direction overflow resume virtualx86 identification]
+$cs: 0x33 $ss: 0x2b $ds: 0x00 $es: 0x00 $fs: 0x00 $gs: 0x00 
+```
