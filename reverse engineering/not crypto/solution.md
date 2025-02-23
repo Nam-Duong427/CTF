@@ -1,5 +1,5 @@
 # not crypto
-## Category 
+## Difficulty 
 Hard
 ## Hint 
 (None)
