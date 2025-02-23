@@ -1,4 +1,0 @@
-
-┌──(kali㉿kali)-[~/Downloads]
-└─$ file not-crypto  
-not-crypto: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=1f838db474ea41305b3181bc0acdc8231273189d, for GNU/Linux 4.4.0, stripped
