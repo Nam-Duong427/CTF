@@ -451,7 +451,9 @@ LAB_00101385:
   } while( true );
 }
 ```
-As you can see, it's too long too go through all or reverse the code immediately. 
+As you can see, it looks like a crypto method and it seems like too long too go through all or reverse the code immediately. 
+
+But the description tells us it is not about crypto.. ?!
 
 So I try GDB with gef to see inside the stack. If we found nothing, we will go back and reverse the code.  
 ```
@@ -462,6 +464,9 @@ In the code, I can see "memcmp" function. Look like it plays an important role i
       iVar17 = memcmp(&local_88,local_198,0x40);
       if (iVar17 != 0) {
         puts("Nope, come back later");
+      }
+      else {
+        puts("Yep, that\'s it!");
       }
 ```
 So I will put my break point in that memcmp function to see the Stack. If you wonder where the address is, go back in Ghidra ! 
