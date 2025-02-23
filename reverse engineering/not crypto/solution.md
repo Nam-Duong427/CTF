@@ -485,7 +485,7 @@ $rdx   : 0x40
 $rsp   : 0x00007fffffffdbc0  →  0x0000000000000000
 $rbp   : 0xa1              
 $rsi   : 0x00007fffffffdc30  →  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[...]"
-$rdi   : 0x00007fffffffdd40  →  "picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but[...]"
+$rdi   : 0x00007fffffffdd40  →  "picoCTF{..redacted[...]"
 $rip   : 0x00005555555553b9  →   call 0x555555555060 <memcmp@plt>
 $r8    : 0xba              
 $r9    : 0x96              
@@ -503,8 +503,8 @@ $rdi is what we are looking for!! But it is not a completed flag.
 Easy peasy.. just print it out !!!
 ```C++
 gef➤  x/s $rdi
-0x7fffffffdd40: "picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but_n0_pr0bl3m?}\n"
+0x7fffffffdd40: "picoCTF{..redacted..}\n"
 ```
 Done ! Thanks for your time ! 
 ## Flag
-picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but_n0_pr0bl3m?}
+picoCTF{..redacted..}
