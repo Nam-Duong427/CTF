@@ -18,6 +18,5 @@ Nope, come back later
 ```
 Like others, we will open Ghidra or IDA pro to have a look inside.
 In this problem, I choose Ghidra for that. 
-When opening the file in Ghidra, we look for the main function of the program. To do that, go Window then choose Defined Strings and look for the string appear in the program.
-
-
+When opening the file in Ghidra, we look for functions that may help us. To do that in Ghidra, choose Window then Defined Strings and look for the string appear in the program.
+And we can see this pseudocode 
