@@ -9,11 +9,11 @@ there's crypto in here but the challenge is not crypto... 🤔
 Download [not-crypto](https://artifacts.picoctf.net/picoMini+by+redpwn/Reverse+Engineering/not-crypto/not-crypto)
 
 ## Solution
-First of all, we can see the file is an executable file, which is ELF 64-bit file and we have to make sure the file that have permission to run.
+First, we can see the file is an executable file, which is an ELF 64-bit file, and we have to make sure the file has permission to run.
 ```
 └─$ chmod +x not-crypto
 ```
-I will try to run to see what it look like. 
+I will try to run to see what it looks like. 
 ```
 └─$ ./not-crypto
 I heard you wanted to bargain for a flag... whatcha got?
@@ -22,7 +22,7 @@ Nope, come back later
 ```
 Like others, we will open Ghidra or IDA pro to have a look inside.
 In this problem, I choose Ghidra for that. 
-When opening the file in Ghidra, we look for functions that may help us. To do that, choose Window then Defined Strings and look for the string appear in the program.
+When opening the file in Ghidra, we look for functions that may help us. To do that, choose Window then Defined Strings and look for the string appearing in the program.
 And we can see this pseudocode :
 ```C
 bool FUN_00101070(void)
@@ -451,15 +451,15 @@ LAB_00101385:
   } while( true );
 }
 ```
-As you can see, it looks like a crypto method and it seems like too long to go through all or reverse the code immediately. 
+As you can see, it looks like a crypto method, and it seems like too long to go through all or reverse the code immediately. 
 
 But the description tells us it is not about crypto.. ?!
 
-So I try GDB with gef to see inside the stack. If we found nothing, we will go back and reverse the code.  
+So I try GDB with gef to see inside the stack. If we find nothing, we will go back and reverse the code.  
 ```
 └─$ gdb not-crypto
 ```
-In the code, I can see "memcmp" function. Look like it plays an important role in the condition IF, decides if your input is correct or not.
+In the code, I can see "memcmp" function. Looks like it plays an important role in the condition If, decides if your input is correct or not.
 ```C
       iVar17 = memcmp(&local_88,local_198,0x40);
       if (iVar17 != 0) {
@@ -469,7 +469,7 @@ In the code, I can see "memcmp" function. Look like it plays an important role i
         puts("Yep, that\'s it!");
       }
 ```
-So I will put my break point in that memcmp function to see the Stack. If you wonder where the address is, go back in Ghidra ! 
+So I will put my break point in that memcmp function to see the stack. If you wonder where the address is, go back in Ghidra ! 
 ```C++
 gef➤  b *0x5555555553b9
 Breakpoint 1 at 0x5555555553b9
