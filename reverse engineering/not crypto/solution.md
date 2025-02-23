@@ -451,7 +451,7 @@ LAB_00101385:
   } while( true );
 }
 ```
-As you can see, it looks like a crypto method and it seems like too long too go through all or reverse the code immediately. 
+As you can see, it looks like a crypto method and it seems like too long to go through all or reverse the code immediately. 
 
 But the description tells us it is not about crypto.. ?!
 
