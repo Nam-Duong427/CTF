@@ -459,7 +459,6 @@ So I try GDB with gef to see inside the stack. If we found nothing, we will go b
 ```
 In the code, I can see "memcmp" function. Look like it plays an important role in the condition IF, decides if your input is correct or not.
 ```C
-    if (local_48 == local_1e8) {
       iVar17 = memcmp(&local_88,local_198,0x40);
       if (iVar17 != 0) {
         puts("Nope, come back later");
