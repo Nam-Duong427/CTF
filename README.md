@@ -1,2 +1,2 @@
-# CTF
-just write up : ) 
+# picoCTF Writeup
+just writeup : ) 
