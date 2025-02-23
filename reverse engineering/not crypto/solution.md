@@ -20,7 +20,7 @@ Like others, we will open Ghidra or IDA pro to have a look inside.
 In this problem, I choose Ghidra for that. 
 When opening the file in Ghidra, we look for functions that may help us. To do that, choose Window then Defined Strings and look for the string appear in the program.
 And we can see this pseudocode :
-````
+```C
 bool FUN_00101070(void)
 
 {
@@ -446,4 +446,4 @@ LAB_00101385:
     }
   } while( true );
 }
-````
+```
