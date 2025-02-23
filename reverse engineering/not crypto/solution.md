@@ -469,7 +469,7 @@ In the code, I can see "memcmp" function. Looks like it plays an important role 
         puts("Yep, that\'s it!");
       }
 ```
-So I will put my break point in that memcmp function to see the stack. If you wonder where the address is, go back to Ghidra ! 
+So I set my break point at that memcmp function and see what's in the stack. If you wonder where the address is, go back to Ghidra ! 
 ```C++
 gef➤  b *0x5555555553b9
 Breakpoint 1 at 0x5555555553b9
