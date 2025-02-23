@@ -458,7 +458,7 @@ So I try GDB with gef to see inside the stack. If we found nothing, we will go b
 └─$ gdb not-crypto
 ```
 In the code, I can see "memcmp" function. Look like it plays an important role in the condition IF, decides if your input is correct or not.
-So I will put my break point in that memcmp function to see the Stack.
+So I will put my break point in that memcmp function to see the Stack. If you wonders where is the address, go back in Ghidra ! 
 ```C++
 gef➤  b *0x5555555553b9
 Breakpoint 1 at 0x5555555553b9
@@ -486,4 +486,10 @@ $r14   : 0xf9
 $r15   : 0x3a              
 $eflags: [ZERO carry PARITY adjust sign trap INTERRUPT direction overflow resume virtualx86 identification]
 $cs: 0x33 $ss: 0x2b $ds: 0x00 $es: 0x00 $fs: 0x00 $gs: 0x00 
+```
+$rdi is what we looking for!! But it is not a completed flag. 
+Easy peasy.. just print that out !!!
+```C++
+gef➤  x/s $rdi
+0x7fffffffdd40: "picoCTF{c0mp1l3r_0pt1m1z4t10n_15_pur3_w1z4rdry_but_n0_pr0bl3m?}\n"
 ```
