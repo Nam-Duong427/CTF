@@ -457,3 +457,9 @@ So I try GDB with gef to see inside the stack. If we found nothing, we will go b
 ```
 └─$ gdb not-crypto
 ```
+In the code, I can see "memcmp" function. Look like it plays an important role in the condition IF, decides if your input is correct or not.
+So I will put my break point in that memcmp function to see the Stack.
+```GDB
+gef➤  b *0x5555555553b9
+Breakpoint 1 at 0x5555555553b9
+```
