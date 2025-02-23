@@ -506,5 +506,3 @@ gef➤  x/s $rdi
 0x7fffffffdd40: "picoCTF{..redacted..}\n"
 ```
 Done ! Thanks for your time ! 
-## Flag
-picoCTF{..redacted..}
