@@ -1,2 +1,2 @@
 # picoCTF Writeup
-just writeup : ) 
+just writeup. enjoy. 
