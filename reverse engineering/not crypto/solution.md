@@ -1,4 +1,8 @@
 # not crypto
+## Category 
+Hard
+## Hint 
+(None)
 ## Problem Description
 there's crypto in here but the challenge is not crypto... 🤔 
 
