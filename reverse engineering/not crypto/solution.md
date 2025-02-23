@@ -447,3 +447,9 @@ LAB_00101385:
   } while( true );
 }
 ```
+As you can see, it's too long too go through all or reverse the code immediately. 
+
+So I try GDB with gef to see inside the stack. If we found nothing, we will go back and reverse the code.  
+```
+└─$ gdb not-crypto
+```
