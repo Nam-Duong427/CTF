@@ -498,7 +498,7 @@ $r15   : 0x3a
 $eflags: [ZERO carry PARITY adjust sign trap INTERRUPT direction overflow resume virtualx86 identification]
 $cs: 0x33 $ss: 0x2b $ds: 0x00 $es: 0x00 $fs: 0x00 $gs: 0x00 
 ```
-$rdi is what we are looking for!! But it is not a completed flag. 
+$rdi is what we are looking for!! But it is an incomplete flag. 
 
 Easy peasy.. just print it out !!!
 ```C++
