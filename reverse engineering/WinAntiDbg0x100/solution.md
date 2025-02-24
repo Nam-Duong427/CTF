@@ -167,5 +167,5 @@ Process stopped with exit code 0x0 (0)
 Saving database to D:\snapshot_2025-01-17_12-45 (1)\release\x32\db\WinAntiDbg0x100.exe.dd32 0ms
 Debugging stopped!
 ```
-
+And that's our flag !! 
   
