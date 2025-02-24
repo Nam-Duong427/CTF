@@ -45,7 +45,7 @@ Again, its a data file so I will check the file's hex by using hexdump
 
 ... 
 ```
-The header is weird.. but the title mention "endianess". IF you don't know what is endianess. Check [here](https://www.geeksforgeeks.org/little-and-big-endian-mystery/). 
+The header is weird.. but the title mention "endianess". If you don't know what endianess is, check [here](https://www.geeksforgeeks.org/little-and-big-endian-mystery/). 
 So basically I use [CyberChef](https://gchq.github.io/CyberChef/) to swap the endian, that will make us a new file. 
 Choose raw data option then download the new file from it.
 
