@@ -54,7 +54,7 @@ bool __golang main_checkPassword(string_0 input)
 ```
 As you can see, it takes our input and XOR with a given key string. 
 To get the correct input, we need to perform a reverse XOR. 
-Accoring to the given code, v4 ^ key = input 
+According to the given code, v4 ^ key = input 
 
 We already have the key string, but where is the v4? 
 So in next steps, we need to find v4. 
