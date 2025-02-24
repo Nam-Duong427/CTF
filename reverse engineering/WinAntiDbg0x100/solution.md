@@ -14,4 +14,4 @@ Download and unzip the file given, we have a .exe file
 └─$ file WinAntiDbg0x100.exe
 WinAntiDbg0x100.exe: PE32 executable (console) Intel 80386, for MS Windows, 5 sections
 ```
-This is a PE32 so I use x32dbg too debug the program. 
+This is a PE32 so I use x32dbg to debug the program. 
