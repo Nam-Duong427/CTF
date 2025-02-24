@@ -475,7 +475,7 @@ gef➤  b *0x5555555553b9
 Breakpoint 1 at 0x5555555553b9
 ```
 And then run the program with a random string. 
-```C++
+```asm
 [ Legend: Modified register | Code | Heap | Stack | String ]
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────── registers ────
 $rax   : 0x10              
@@ -501,7 +501,7 @@ $cs: 0x33 $ss: 0x2b $ds: 0x00 $es: 0x00 $fs: 0x00 $gs: 0x00
 $rdi is what we are looking for !!! But it is an incomplete flag..
 
 Easy peasy.. just print it out !!!
-```C++
+```asm
 gef➤  x/s $rdi
 0x7fffffffdd40: "picoCTF{..redacted..}\n"
 ```
