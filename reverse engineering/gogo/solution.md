@@ -26,7 +26,7 @@ The program tells us to enter password so firstly I check the checkPassword func
 
 Go to View -> Open subviews and choose Generate pseudocode or hit F5
 
-And this code appear : 
+And this code appears : 
 ```C
 // main.checkPassword
 bool __golang main_checkPassword(string_0 input)
@@ -56,7 +56,7 @@ bool __golang main_checkPassword(string_0 input)
 ```
 As you can see, it takes our input and XOR with a given key string. 
 
-To get the correct input, we need to perform the reverse XOR. 
+To get the correct input, we need to perform a reverse XOR. 
 Accoring to the given code, v4 ^ key = input 
 
 We already have the key string, but where is the v4? 
@@ -84,7 +84,7 @@ Go to Text view of checkPassword function, we find the part where the XOR is at.
 .text:080D4B37                 inc     ebx
 .text:080D4B38                 jmp     short loc_80D4B0E
 ```
-And there we go.. it XORs and then compare with esp+eax+44h+var_20 with is v4 !! 
+And there we go.. it XORs and then compare, we can see v4 is in 0x80D4B28 !
 
 We found it! But how to see the hex string ? 
 Hex view in IDA may help but the address is 0x80D4B28, we may find the incomplete hex string. 
@@ -109,3 +109,23 @@ hex=(str(hex(0x3836313833366631336533643632376466613337356264623833383932313465^
 hex2=hex[2:]
 print(bytes.fromhex(hex2).decode('utf-8'))
 ```
+Then enter the password to the program
+```
+└─$ ./enter_password 
+Enter Password: reverseengineericanbarelyforward
+=========================================
+This challenge is interrupted by psociety
+What is the unhashed key?
+```
+The program asks us unhashed key.. Just unhash the key [here](https://md5hashing.net/hash/md5).
+Connect to the server to get the flag!
+```
+└─$ nc mercury.picoctf.net 34256   
+Enter Password: reverseengineericanbarelyforward
+=========================================
+This challenge is interrupted by psociety
+What is the unhashed key?
+goldfish
+Flag is:  picoCTF{..redacted..}
+```
+
