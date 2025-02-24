@@ -17,14 +17,16 @@ Run the program to see what it looks like.
 Enter Password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Try again!
 ```
-The hints said use objdump or ghidra but in this challenge, IDA pro stays with me. 
+I use IDA pro and Ghidra in this challenge. 
 
 Opening IDA pro, and look for main function. 
 You can see several functions like main.checkPassword, main.getFlag.. 
 
 The program tells us to enter password so firstly I check the checkPassword function.
 
-Go to View -> Open subviews and choose generate pseudocode or hit F5
+Go to View -> Open subviews and choose Generate pseudocode or hit F5
+
+And this code appear : 
 ```C
 // main.checkPassword
 bool __golang main_checkPassword(string_0 input)
@@ -52,3 +54,26 @@ bool __golang main_checkPassword(string_0 input)
   return v2 == 32;
 }
 ```
+As you can see, it takes our input and XOR with a given key string. 
+
+To get the correct input, we need to perform the reverse XOR. 
+Accoring to the given code, v4 ^ key = input 
+
+We already have the key string, but where is the v4? 
+
+So in next steps, we need to find v4. 
+
+Go to Graph view, we find where the XOR is. 
+```asm
+movzx   esi, [esp+eax+44h+key]
+xor     ebp, esi
+movzx   esi, [esp+eax+44h+var_20]
+xchg    eax, ebp
+xchg    ebx, esi
+cmp     al, bl
+xchg    ebx, esi
+xchg    eax, ebp
+jnz     short loc_80D4B0E
+```
+
+
