@@ -57,7 +57,6 @@ To get the correct input, we need to perform a reverse XOR.
 Accoring to the given code, v4 ^ key = input 
 
 We already have the key string, but where is the v4? 
-
 So in next steps, we need to find v4. 
 
 Go to Text view of checkPassword function, we find the part where the XOR is at. 
