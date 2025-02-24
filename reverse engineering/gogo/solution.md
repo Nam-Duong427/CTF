@@ -17,7 +17,7 @@ Run the program to see what it looks like.
 Enter Password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Try again!
 ```
-I use IDA pro and Ghidra in this challenge. 
+The hints tells me to use objdump or ghidra, but IDA pro stays with me in this challenge. 
 
 Opening IDA pro, and look for main function. 
 You can see several functions like main.checkPassword, main.getFlag.. 
