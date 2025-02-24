@@ -9,3 +9,9 @@ Now that you've understood the context, go ahead and debug this Windows executab
 This challenge binary file is a Windows console application and you can start with running it using cmd on Windows.
 Challenge can be downloaded [here](https://artifacts.picoctf.net/c_titan/54/WinAntiDbg0x100.zip) . Unzip the archive with the password picoctf
 ## Solution
+Download and unzip the file given, we have a .exe file 
+```
+└─$ file WinAntiDbg0x100.exe
+WinAntiDbg0x100.exe: PE32 executable (console) Intel 80386, for MS Windows, 5 sections
+```
+This is a PE32 so I use x32dbg too debug the program. 
