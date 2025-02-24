@@ -9,7 +9,7 @@ Hmmm this is a weird file... [enter_password](https://mercury.picoctf.net/static
 Download the given file, we see an executable file.
 ```
 └─$ file enter_password     
-enter_password: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, Go BuildID=--bYZi77Z7HtN3dmSbXU/bBls8YFmgs0HmTo3HGIV/JvDvpaxTrympQWzzT33m/yPEm7CK8x0gHuOidfIK5, with debug_info, not stripped                                                      
+enter_password: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, Go BuildID=--bYZi77Z7HtN3dmSbXU/bBls8YFmgs0HmTo3HGIV/JvDvpaxTrympQWzzT33m/yPEm7CK8x0gHuOidfIK5, with debug_info, not stripped
 ```
 Run the program to see what it looks like. 
 ```
