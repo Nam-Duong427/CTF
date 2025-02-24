@@ -4,7 +4,7 @@ Hard
 ## Hints 
 use go tool objdump or ghidra
 ## Problem Description
-Hmmm this is a weird file... [enter_password](https://mercury.picoctf.net/static/eb7ca66cba87f2df20ea754c89148343/enter_password). There is a instance of the service running at mercury.picoctf.net:34256.
+Hmmm this is a weird file... [enter_password](https://mercury.picoctf.net/static/eb7ca66cba87f2df20ea754c89148343/enter_password). There is a instance of the service running at mercury.picoctf.net 34256.
 # Solution 
 Download the given file, we see an executable file.
 ```
