@@ -63,7 +63,12 @@ We already have the key string, but where is the v4?
 
 So in next steps, we need to find v4. 
 
-Go to Graph view, we find where the XOR is. 
+Go to Graph view, we find 2 parts where the XOR is. 
+```asm
+movzx   ebp, byte ptr [ecx+eax]
+cmp     eax, 20h ; ' '
+jnb     short loc_80D4B66
+```
 ```asm
 movzx   esi, [esp+eax+44h+key]
 xor     ebp, esi
@@ -75,5 +80,11 @@ xchg    ebx, esi
 xchg    eax, ebp
 jnz     short loc_80D4B0E
 ```
+And there we go.. it XORs and then compare with esp+eax+44h+var_20 with is v4 !! 
+
+We found it! But how to see the hex string ? 
+Choose text view for the second part of the ASM code.
+We will get the address of v4, which is 0x080D4B28 
+
 
 
