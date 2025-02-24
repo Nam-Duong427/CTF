@@ -63,28 +63,49 @@ We already have the key string, but where is the v4?
 
 So in next steps, we need to find v4. 
 
-Go to Graph view, we find 2 parts where the XOR is. 
+Go to Text view of checkPassword function, we find the part where the XOR is at. 
 ```asm
-movzx   ebp, byte ptr [ecx+eax]
-cmp     eax, 20h ; ' '
-jnb     short loc_80D4B66
-```
-```asm
-movzx   esi, [esp+eax+44h+key]
-xor     ebp, esi
-movzx   esi, [esp+eax+44h+var_20]
-xchg    eax, ebp
-xchg    ebx, esi
-cmp     al, bl
-xchg    ebx, esi
-xchg    eax, ebp
-jnz     short loc_80D4B0E
+.text:080D4B0F                 cmp     eax, 20h ; ' '
+.text:080D4B12                 jge     short loc_80D4B3A
+.text:080D4B14                 cmp     eax, edx
+.text:080D4B16                 jnb     short loc_80D4B66
+.text:080D4B18                 movzx   ebp, byte ptr [ecx+eax]
+.text:080D4B1C                 cmp     eax, 20h ; ' '
+.text:080D4B1F                 jnb     short loc_80D4B66
+.text:080D4B21                 movzx   esi, [esp+eax+44h+key]
+.text:080D4B26                 xor     ebp, esi
+.text:080D4B28                 movzx   esi, [esp+eax+44h+var_20]
+.text:080D4B2D                 xchg    eax, ebp
+.text:080D4B2E                 xchg    ebx, esi
+.text:080D4B30                 cmp     al, bl
+.text:080D4B32                 xchg    ebx, esi
+.text:080D4B34                 xchg    eax, ebp
+.text:080D4B35                 jnz     short loc_80D4B0E
+.text:080D4B37                 inc     ebx
+.text:080D4B38                 jmp     short loc_80D4B0E
 ```
 And there we go.. it XORs and then compare with esp+eax+44h+var_20 with is v4 !! 
 
 We found it! But how to see the hex string ? 
-Choose text view for the second part of the ASM code.
-We will get the address of v4, which is 0x080D4B28 
+Hex view in IDA may help but the address is 0x80D4B28, we may find the incomplete hex string. 
 
-
-
+So I use GDB debugger to see it. Open GDB I set breakpoint at v4, which is 0x80D4B28.
+```C
+gef➤  b *0x80d4b28
+Breakpoint 1 at 0x80d4b28: file /opt/hacksports/shared/staging/gogo_3_1238727778909769/problem_files/enter_password.go, line 71
+```
+And this is v4's hex string !
+```C
+gef➤  hexdump byte $esp+$eax*1+0x24
+0x1843df48     4a 53 47 5d 41 45 03 54 5d 02 5a 0a 53 57 45 0d    JSG]AE.T].Z.SWE.
+0x1843df58     05 00 5d 55 54 10 01 0e 41 55 57 4b 45 50 46 01    ..]UT...AUWKEPF.
+0x1843df68     c2 48 0d 08 80 61 41 18 39 00 00 00 ac df 43 18    .H...aA.9.....C.
+0x1843df78     01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00    ................
+```
+Take that hex and XOR with the key's hex, then we will get the password ! 
+```python
+hex=(str(hex(0x3836313833366631336533643632376466613337356264623833383932313465^
+          0x4a53475d414503545d025a0a5357450d05005d555410010e4155574b45504601)))
+hex2=hex[2:]
+print(bytes.fromhex(hex2).decode('utf-8'))
+```
