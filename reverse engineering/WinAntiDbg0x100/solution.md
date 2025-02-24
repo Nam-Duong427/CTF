@@ -9,7 +9,7 @@ Now that you've understood the context, go ahead and debug this Windows executab
 This challenge binary file is a Windows console application and you can start with running it using cmd on Windows.
 Challenge can be downloaded [here](https://artifacts.picoctf.net/c_titan/54/WinAntiDbg0x100.zip) . Unzip the archive with the password picoctf
 ## Solution
-Download and unzip the file given, we have a .exe file 
+Download and unzip the file given, we have a .exe file.
 ```
 └─$ file WinAntiDbg0x100.exe
 WinAntiDbg0x100.exe: PE32 executable (console) Intel 80386, for MS Windows, 5 sections
@@ -31,7 +31,7 @@ DebugString: "### Level 1: Why did the clever programmer become a gardener? Beca
 DebugString: "### Level 1: Why did the clever programmer become a gardener? Because they discovered their talent for growing a 'patch' of roses!"
 ```
 
-Okay.. now I use Ghidra to see the pseudocode
+Okay.. now I use Ghidra to see the pseudocode.
 ```C
 undefined4 FUN_00401580(void)
 
@@ -93,7 +93,7 @@ undefined4 FUN_00401580(void)
   return 0;
 }
 ```
-According the code, to get the flag, we have to go through the condition If 
+According the code, to get the flag, we have to go through the condition If.
 ```C
       if (BVar3 == 0) {
         FUN_00401440(0xb);
@@ -119,5 +119,11 @@ According the code, to get the flag, we have to go through the condition If
                           );
       }
 ```
-
+Looks like we have to modify the value of BVar3 to 0 to bypass the debugger. 
+```C
+00D115FC  | FF15 1430D100            | call dword ptr ds:[<IsDebuggerPresent>]      |
+00D11602  | 85C0                     | test eax,eax                                 |
+00D11604  | 74 15                    | je winantidbg0x100.D1161B                    |
+00D11606  | 68 C835D100              | push winantidbg0x100.D135C8                  | D135C8:L"### Oops! The debugger was detected. Try to bypass this check to get the flag!\n"
+```
   
