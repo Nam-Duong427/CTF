@@ -83,9 +83,8 @@ Go to Text view of checkPassword function, we find the part where the XOR's at.
 And there we go.. it XORs and then compare, we can see v4 is in 0x80D4B28 !
 
 We found it! But how to see the hex string ? 
-Hex view in IDA may help but the address is 0x80D4B28, we may find the incomplete hex string. 
 
-So I use GDB debugger to see it. Open GDB I set breakpoint at v4, which is 0x80D4B28.
+I use GDB debugger to see it. Open GDB I set breakpoint at v4, which is 0x80D4B28.
 ```C++
 gef➤  b *0x80d4b28
 Breakpoint 1 at 0x80d4b28: file /opt/hacksports/shared/staging/gogo_3_1238727778909769/problem_files/enter_password.go, line 71
