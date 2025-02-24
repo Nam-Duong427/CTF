@@ -1,7 +1,7 @@
 # not crypto
 ## Difficulty 
 Hard
-## Hint 
+## Hints
 (None)
 ## Problem Description
 there's crypto in here but the challenge is not crypto... 🤔 
