@@ -59,7 +59,7 @@ According to the given code, v4 ^ key = input.
 We already have the key string, but where is the v4? 
 So in next steps, we need to find v4. 
 
-Go to Text view of the checkPassword function, we find the part where the XOR's at. 
+Go to Text view of the checkPassword function, we need to find the part where the XOR's at. 
 ```asm
 .text:080D4B0F                 cmp     eax, 20h ; ' '
 .text:080D4B12                 jge     short loc_80D4B3A
