@@ -105,7 +105,7 @@ hex=(str(hex(0x3836313833366631336533643632376466613337356264623833383932313465^
 hex2=hex[2:]
 print(bytes.fromhex(hex2).decode('utf-8'))
 ```
-Then enter the password to the program
+Then run the program with the password.
 ```
 └─$ ./enter_password 
 Enter Password: reverseengineericanbarelyforward
@@ -124,4 +124,5 @@ What is the unhashed key?
 goldfish
 Flag is:  picoCTF{..redacted..}
 ```
+That's it !
 
