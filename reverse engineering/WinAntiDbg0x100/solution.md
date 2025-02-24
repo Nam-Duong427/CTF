@@ -120,7 +120,7 @@ According the code, to get the flag, we have to go through the condition If.
       }
 ```
 Looks like we have to modify the value of BVar3 to 0 to bypass the debugger. 
-```C
+```asm
 00D115FC  | FF15 1430D100            | call dword ptr ds:[<IsDebuggerPresent>]      |
 00D11602  | 85C0                     | test eax,eax                                 |
 00D11604  | 74 15                    | je winantidbg0x100.D1161B                    |
