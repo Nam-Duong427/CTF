@@ -95,7 +95,7 @@ gef➤  b *0x80d4b28
 Breakpoint 1 at 0x80d4b28: file /opt/hacksports/shared/staging/gogo_3_1238727778909769/problem_files/enter_password.go, line 71
 ```
 And this is v4's hex string !
-```C
+```C++
 gef➤  hexdump byte $esp+$eax*1+0x24
 0x1843df48     4a 53 47 5d 41 45 03 54 5d 02 5a 0a 53 57 45 0d    JSG]AE.T].Z.SWE.
 0x1843df58     05 00 5d 55 54 10 01 0e 41 55 57 4b 45 50 46 01    ..]UT...AUWKEPF.
