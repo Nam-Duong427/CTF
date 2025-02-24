@@ -8,3 +8,4 @@ This challenge will introduce you to 'Anti-Debugging.' Malware developers don't 
 Now that you've understood the context, go ahead and debug this Windows executable!
 This challenge binary file is a Windows console application and you can start with running it using cmd on Windows.
 Challenge can be downloaded [here](https://artifacts.picoctf.net/c_titan/54/WinAntiDbg0x100.zip) . Unzip the archive with the password picoctf
+## Solution
