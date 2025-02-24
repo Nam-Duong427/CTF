@@ -93,4 +93,31 @@ undefined4 FUN_00401580(void)
   return 0;
 }
 ```
+According the code, to get the flag, we have to go through the condition If 
+```C
+      if (BVar3 == 0) {
+        FUN_00401440(0xb);
+        FUN_00401530(DAT_00405404);
+        lpOutputString = FUN_004013b0(DAT_00405408);
+        if (lpOutputString == (LPWSTR)0x0) {
+          OutputDebugStringW(L"### Something went wrong...\n");
+        }
+        else {
+          OutputDebugStringW(L"### Good job! Here\'s your flag:\n");
+          OutputDebugStringW(L"### ~~~ ");
+          OutputDebugStringW(lpOutputString);
+          OutputDebugStringW(L"\n");
+          OutputDebugStringW(
+                            L"### (Note: The flag could become corrupted if the process state is tampered with in any way.)\n\n"
+                            );
+          free(lpOutputString);
+        }
+      }
+      else {
+        OutputDebugStringW(
+                          L"### Oops! The debugger was detected. Try to bypass this check to get the flag!\n"
+                          );
+      }
+```
+
   
