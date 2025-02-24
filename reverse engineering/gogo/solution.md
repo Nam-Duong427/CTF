@@ -21,11 +21,9 @@ The hints tells me to use objdump or ghidra, but IDA pro stays with me in this c
 
 Opening IDA pro, and look for main function. 
 You can see several functions like main.checkPassword, main.getFlag.. 
-
 The program tells us to enter password so firstly I check the checkPassword function.
 
 Go to View -> Open subviews and choose Generate pseudocode or hit F5
-
 And this code appears : 
 ```C
 // main.checkPassword
@@ -55,7 +53,6 @@ bool __golang main_checkPassword(string_0 input)
 }
 ```
 As you can see, it takes our input and XOR with a given key string. 
-
 To get the correct input, we need to perform a reverse XOR. 
 Accoring to the given code, v4 ^ key = input 
 
