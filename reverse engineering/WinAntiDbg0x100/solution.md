@@ -122,7 +122,7 @@ According the code, to get the flag, we have to go through the condition If.
 Looks like we have to modify the value of BVar3 to 0 to bypass the debugger. 
 Go back in x32dbg and find the value need to be modified.
 
-eax is our target!!
+And eax is our target!!
 ```asm
 00D115FC  | FF15 1430D100            | call dword ptr ds:[<IsDebuggerPresent>]      |
 00D11602  | 85C0                     | test eax,eax                                 |
