@@ -40,5 +40,66 @@ We will see the ASM code and some strings of the program
 00D1167F  | FF15 0830D100            | call dword ptr ds:[<OutputDebugStringW>]     |
 00D11685  | 68 0837D100              | push winantidbg0x100.D13708                  | D13708:L"### (Note: The flag could become corrupted if the process state is tampered with in any way.)\n\n"
 ```
+Okay.. now I use Ghidra to see the pseudocode
+```C
+undefined4 FUN_00401580(void)
 
+{
+  uint uVar1;
+  int iVar2;
+  BOOL BVar3;
+  LPWSTR lpOutputString;
+  undefined in_stack_fffffff4;
+  
+  uVar1 = FUN_00401130();
+  if ((uVar1 & 0xff) == 0) {
+    FUN_00401060(PTR_s__________________________________00405020,in_stack_fffffff4);
+    FUN_00401060("### To start the challenge, you\'ll need to first launch this program using a debugger!\n"
+                 ,in_stack_fffffff4);
+  }
+  else {
+    OutputDebugStringW(L"\n");
+    OutputDebugStringW(L"\n");
+    FUN_004011b0();
+    iVar2 = FUN_00401200();
+    if (iVar2 == 0) {
+      OutputDebugStringW(L"### Error reading the \'config.bin\' file... Challenge aborted.\n");
+    }
+    else {
+      OutputDebugStringW(
+                        L"### Level 1: Why did the clever programmer become a gardener? Because they discovered their talent for growing a \'patch\' of roses!\n"
+                        );
+      FUN_00401440(7);
+      BVar3 = IsDebuggerPresent();
+      if (BVar3 == 0) {
+        FUN_00401440(0xb);
+        FUN_00401530(DAT_00405404);
+        lpOutputString = FUN_004013b0(DAT_00405408);
+        if (lpOutputString == (LPWSTR)0x0) {
+          OutputDebugStringW(L"### Something went wrong...\n");
+        }
+        else {
+          OutputDebugStringW(L"### Good job! Here\'s your flag:\n");
+          OutputDebugStringW(L"### ~~~ ");
+          OutputDebugStringW(lpOutputString);
+          OutputDebugStringW(L"\n");
+          OutputDebugStringW(
+                            L"### (Note: The flag could become corrupted if the process state is tampered with in any way.)\n\n"
+                            );
+          free(lpOutputString);
+        }
+      }
+      else {
+        OutputDebugStringW(
+                          L"### Oops! The debugger was detected. Try to bypass this check to get the flag!\n"
+                          );
+      }
+    }
+    free(DAT_00405410);
+  }
+  OutputDebugStringW(L"\n");
+  OutputDebugStringW(L"\n");
+  return 0;
+}
+```
   
