@@ -122,11 +122,50 @@ According the code, to get the flag, we have to go through the condition If.
 Looks like we have to modify the value of BVar3 to 0 to bypass the debugger. 
 Go back in x32dbg and find the value need to be modified.
 
-And eax is our target!!
+And EAX is our target!! To make sure, hit F2 to set Toggle for it. 
 ```asm
 00D115FC  | FF15 1430D100            | call dword ptr ds:[<IsDebuggerPresent>]      |
 00D11602  | 85C0                     | test eax,eax                                 |
 00D11604  | 74 15                    | je winantidbg0x100.D1161B                    |
 00D11606  | 68 C835D100              | push winantidbg0x100.D135C8                  | D135C8:L"### Oops! The debugger was detected. Try to bypass this check to get the flag!\n"
 ```
+To modify, go to FPU session and choose Zero value option for EAX. 
+
+Then click run again, we will see the value automatically turn to 1.
+
+Let's set it to 0 again !
+
+Finally hit run. 
+```
+DebugString: "_            _____ _______ ______  
+       (_)          / ____|__   __|  ____| 
+  _ __  _  ___ ___ | |       | |  | |__    
+ | '_ \| |/ __/ _ \| |       | |  |  __|   
+ | |_) | | (_| (_) | |____   | |  | |      
+ | .__/|_|\___\___/ \_____|  |_|  |_|      
+ | |                                       
+ |_|                                       
+  Welcome to the Anti-Debug challenge!"
+DebugString: "### Level 1: Why did the clever programmer become a gardener? Because they discovered their talent for growing a 'patch' of roses!"
+DebugString: "### Level 1: Why did the clever programmer become a gardener? Because they discovered their talent for growing a 'patch' of roses!"
+INT3 breakpoint at winantidbg0x100.00D11602!
+DebugString: "### Good job! Here's your flag:"
+DebugString: "### Good job! Here's your flag:"
+DebugString: "### ~~~"
+DebugString: "### ~~~"
+DebugString: "picoCTF{d3bug_f0r_th3_Win_0x100_17712291}"
+DebugString: "picoCTF{d3bug_f0r_th3_Win_0x100_17712291}"
+DebugString: "### (Note: The flag could become corrupted if the process state is tampered with in any way.)"
+DebugString: "### (Note: The flag could become corrupted if the process state is tampered with in any way.)"
+DLL Loaded: 742B0000 C:\Windows\SysWOW64\kernel.appcore.dll
+DLL Loaded: 75C50000 C:\Windows\SysWOW64\msvcrt.dll
+Thread 23096 exit
+Thread 7084 exit
+Thread 5260 exit
+Thread 6464 exit
+Process stopped with exit code 0x0 (0)
+Saving database to D:\snapshot_2025-01-17_12-45 (1)\release\x32\db\WinAntiDbg0x100.exe.dd32 0ms
+Debugging stopped!
+```
+
   
