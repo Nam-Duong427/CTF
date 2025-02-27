@@ -154,11 +154,11 @@ We can immediately see which lines of code is important to bypass the debugger.
 **Main points** : 
 - (uVar5 & 0xff) must not be 0 to run the program. 
 - iVar2 must be 0 to avoid error. 
-- cVar1 must be 0 to go.
-- If Bvar4 is not 0, then our Debugger has been detected.
+- cVar1 must be 0 to go next.
+- If Bvar4 is not 0, then our Debugger will be detected.
 - Otherwise if Bvar4 is indeed 0, the flag will appear means we just bypassed the AntiDebug successfully. 
 
-Now we will open x32dbg to modify these variables. Don't forget to take the addresses from Ghidra if you loss. 
+Now we will open x32dbg to modify these variables.
 ```asm
 00D117BD  | 85C9                     | test ecx,ecx                                 |
 00D117BF  | 75 12                    | jne winantidbg0x200.D117D3                   |
@@ -192,10 +192,12 @@ Now we will open x32dbg to modify these variables. Don't forget to take the addr
 00D11832  | 68 8838D100              | push winantidbg0x200.D13888                  | D13888:L"### Oops! The debugger was detected. Try to bypass this check to get the flag!\n"
 ```
 Read it carefully. 
-- We will set the break points (Toggle) for each of these address 00D117BD, 00D117F3, 00D11824 and 00D1182E.
+- We will set the breakpoints for each of these address 00D117BD, 00D117F3, 00D11824 and 00D1182E.
 - Then we will set EIP and hit run to go by each by each to follow the program.
 
-First variale need to be changed is at 00D117BD, which is $ecx. Base on the code, $ecx must be 1 to run the program correctly.
+**Note : to modify value, please go to FPU session and double click the value that you want to modify.**
+
+First variale need to be changed is at 00D117BD, which is $ecx. Base on the code, $ecx must be 1 for the program to run correctly.
 
 Go to FPU and see if $ecx is 1. If not change it to 1.
 
@@ -228,7 +230,9 @@ INT3 breakpoint at winantidbg0x200.00D117BD!
 ```
 After that, you should go in the next breakpoint, which is 00D117F3. If not, please set EIP for it and execute again until you see like below. 
 And this time, $eax must be not 0 to avoid the error.
-Do the same at the previous one.
+
+Now set $eax = 1. 
+
 Now you should see this in log tab : 
 ```
 DebugString: "### Level 2: Why did the parent process get a promotion at work? Because it had a "fork-tastic" child process that excelled in multitasking!"
