@@ -114,7 +114,7 @@ LAB_004018de:
   return 0;
 }
 ```
-We can immediately see which lines of code is important to bypass the debugger
+We can immediately see which lines of code is important to bypass the debugger.
 ```C
     if (cVar1 == '\0') {
       BVar4 = IsDebuggerPresent();
