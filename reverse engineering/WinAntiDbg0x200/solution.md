@@ -116,6 +116,14 @@ LAB_004018de:
 ```
 We can immediately see which lines of code is important to bypass the debugger.
 ```C
+  if ((uVar5 & 0xff) == 0) {
+    FUN_00401910("### To start the challenge, you\'ll need to first launch this program using a debugger!\n"
+                 ,in_stack_fffffff0);
+    goto LAB_004018de;
+  }
+
+-----------------------------------------------------------------------------------------------------------------------
+
     if (cVar1 == '\0') {
       BVar4 = IsDebuggerPresent();
       if (BVar4 == 0) {
@@ -143,9 +151,113 @@ We can immediately see which lines of code is important to bypass the debugger.
                       );
   }
 ```
-As you can see, Bvar4 stands for the existant of AntiDebug and the program it checks BVar4 to see if it's 0 or not. 
+**Main points** : 
+- (uVar5 & 0xff) must not be 0 to run the program. 
+- iVar2 must be 0 to avoid error. 
+- cVar1 must be 0 to go.
+- If Bvar4 is not 0, then our Debugger has been detected.
+- Otherwise if Bvar4 is indeed 0, the flag will appear means we just bypassed the AntiDebug successfully. 
 
-- Specifically if Bvar4 is 0, then our Debugger has been detected.
-- Otherwise, the flag will appear means we just bypassed the AntiDebug successfully. 
+Now we will open x32dbg to modify these variables. Don't forget to take the addresses from Ghidra if you loss. 
+```asm
+00D117BD  | 85C9                     | test ecx,ecx                                 |
+00D117BF  | 75 12                    | jne winantidbg0x200.D117D3                   |
+00D117C1  | 68 8836D100              | push winantidbg0x200.D13688                  | D13688:"### To start the challenge, you'll need to first launch this program using a debugger!\n"
+00D117C6  | E8 45010000              | call winantidbg0x200.D11910                  |
+00D117CB  | 83C4 04                  | add esp,4                                    |
+00D117CE  | E9 0B010000              | jmp winantidbg0x200.D118DE                   |
+00D117D3  | 68 E036D100              | push winantidbg0x200.D136E0                  |
+00D117D8  | FF15 4830D100            | call dword ptr ds:[<OutputDebugStringW>]     |
+00D117DE  | 68 E436D100              | push winantidbg0x200.D136E4                  |
+00D117E3  | FF15 4830D100            | call dword ptr ds:[<OutputDebugStringW>]     |
+00D117E9  | E8 12FCFFFF              | call winantidbg0x200.D11400                  |
+00D117EE  | E8 5DFCFFFF              | call winantidbg0x200.D11450                  |
+00D117F3  | 85C0                     | test eax,eax                                 |
+00D117F5  | 75 10                    | jne winantidbg0x200.D11807                   |
+00D117F7  | 68 E836D100              | push winantidbg0x200.D136E8                  | D136E8:L"### Error reading the 'config.bin' file... Challenge aborted.\n"
+00D117FC  | FF15 4830D100            | call dword ptr ds:[<OutputDebugStringW>]     |
+00D11802  | E9 C7000000              | jmp winantidbg0x200.D118CE                   |
+00D11807  | 68 6837D100              | push winantidbg0x200.D13768                  | D13768:L"### Level 2: Why did the parent process get a promotion at work? Because it had a \"fork-tastic\" child process that excelled in multitasking!\n"
+00D1180C  | FF15 4830D100            | call dword ptr ds:[<OutputDebugStringW>]     |
+00D11812  | 6A 03                    | push 3                                       |
+00D11814  | E8 77F8FFFF              | call winantidbg0x200.D11090                  |
+00D11819  | 83C4 04                  | add esp,4                                    |
+00D1181C  | E8 AFF9FFFF              | call winantidbg0x200.D111D0                  |
+00D11821  | 0FB6D0                   | movzx edx,al                                 |
+00D11824  | 85D2                     | test edx,edx                                 |
+00D11826  | 75 0A                    | jne winantidbg0x200.D11832                   |
+00D11828  | FF15 5030D100            | call dword ptr ds:[<IsDebuggerPresent>]      |
+00D1182E  | 85C0                     | test eax,eax                                 |
+00D11830  | 74 15                    | je winantidbg0x200.D11847                    |
+00D11832  | 68 8838D100              | push winantidbg0x200.D13888                  | D13888:L"### Oops! The debugger was detected. Try to bypass this check to get the flag!\n"
+```
+Read it carefully. 
+- We will set the break points (Toggle) for each of these address 00D117BD, 00D117F3, 00D11824 and 00D1182E.
+- Then we will set EIP and hit run to go by each by each to follow the program.
 
+First variale need to be changed is at 00D117BD, which is $ecx. Base on the code, $ecx must be 1 to run the program correctly.
+
+Go to FPU and see if $ecx is 1. If not change it to 1.
+
+Then set EIP at the current address.
+Then hit run to execute and to go to the next one.
+In log tab should appear this : 
+```
+DebugString: "_            _____ _______ ______  
+       (_)          / ____|__   __|  ____| 
+  _ __  _  ___ ___ | |       | |  | |__    
+ | '_ \| |/ __/ _ \| |       | |  |  __|   
+ | |_) | | (_| (_) | |____   | |  | |      
+ | .__/|_|\___\___/ \_____|  |_|  |_|      
+ | |                                       
+ |_|                                       
+  Welcome to the Anti-Debug challenge!"
+DebugString: "_            _____ _______ ______  
+       (_)          / ____|__   __|  ____| 
+  _ __  _  ___ ___ | |       | |  | |__    
+ | '_ \| |/ __/ _ \| |       | |  |  __|   
+ | |_) | | (_| (_) | |____   | |  | |      
+ | .__/|_|\___\___/ \_____|  |_|  |_|      
+ | |                                       
+ |_|                                       
+  Welcome to the Anti-Debug challenge!"
+INT3 breakpoint at winantidbg0x200.00D117F3!
+Breakpoint at 00D117BD set!
+00D117BD (13703101d) winantidbg0x200.00D117BD
+INT3 breakpoint at winantidbg0x200.00D117BD!
+```
+After that, you should go in the next breakpoint, which is 00D117F3. If not, please set EIP for it and execute again until you see like below. 
+And this time, $eax must be not 0 to avoid the error.
+Do the same at the previous one.
+Now you should see this in log tab : 
+```
+DebugString: "### Level 2: Why did the parent process get a promotion at work? Because it had a "fork-tastic" child process that excelled in multitasking!"
+DebugString: "### Level 2: Why did the parent process get a promotion at work? Because it had a "fork-tastic" child process that excelled in multitasking!"
+Thread 4644 created, Entry: ntdll.77E35B70, Parameter: 011C3B18
+INT3 breakpoint at winantidbg0x200.00D11824!
+```
+So in the next breakpoint, $edx should be 0.
+Do the same thing. 
+Hit run the move to the next one!
+
+In final step, which is the $eax, set it to 0 based on the given pseudocode.
+Then hit run again! 
+```
+DebugString: "### Good job! Here's your flag:"
+DebugString: "### Good job! Here's your flag:"
+DebugString: "### ~~~"
+DebugString: "### ~~~"
+DebugString: "picoCTF{..redacted..}"
+DebugString: "picoCTF{..redacted..}"
+DebugString: "### (Note: The flag could become corrupted if the process state is tampered with in any way.)"
+DebugString: "### (Note: The flag could become corrupted if the process state is tampered with in any way.)"
+DLL Loaded: 74E20000 C:\Windows\SysWOW64\kernel.appcore.dll
+Thread 7704 exit
+Thread 10816 exit
+Thread 23144 exit
+Process stopped with exit code 0x0 (0)
+Saving database to D:\snapshot_2025-01-17_12-45 (1)\release\x32\db\WinAntiDbg0x200.exe.dd32 16ms
+Debugging stopped!
+```
+Done for now.. !
 
