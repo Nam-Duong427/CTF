@@ -56,7 +56,7 @@ The flag is 26 characters, so we will take the last 26 bytes in the image.
 
 Our solution script based on the pseudocode : 
 
-**Note: ptr stands for flag, and file stands for the image. **
+**Note: ptr stands for flag, and file stands for the image.**
 
 ```python
 file=[0x70, 0x69, 0x63, 0x6f, 0x43, 0x54, 0x4b, 0x80, 0x6b, 0x35, 0x7a, 0x73,
