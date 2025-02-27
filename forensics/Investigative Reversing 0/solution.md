@@ -9,7 +9,7 @@ Hard
 We have recovered a [binary](https://jupiter.challenges.picoctf.org/static/70fd416f817ab1e59beaf19dc2b586cd/mystery) and an [image](https://jupiter.challenges.picoctf.org/static/70fd416f817ab1e59beaf19dc2b586cd/mystery.png). See what you can make of it. There should be a flag somewhere.
 ## Solution 
 The problem gives us 2 files, one is a normal png, the other is an excutable file.
-First of all, we open IDA pro to get closer to the program through pseudocode
+First of all, we open IDA pro to get closer to the program through pseudocode.
 ```C
 int __fastcall main(int argc, const char **argv, const char **envp)
 {
@@ -48,15 +48,15 @@ int __fastcall main(int argc, const char **argv, const char **envp)
 ```
 According to the pseudocode given : 
 - v8 stands for the image.
-- The image was appended by ptr[i] by fputc()
+- The image was appended by ptr[i] by fputc().
 - Append followed by 26 characters and it means our flag.
 We just basically follow the code line by line to get the flag.
 
 The flag is 26 characters, so we will take the last 26 bytes in the image.
 
-Our solution script base on the pseudocode : 
+Our solution script based on the pseudocode : 
 
-Note: ptr stands for flag, and file stands for the image. 
+_Note: ptr stands for flag, and file stands for the image. _
 
 ```python
 file=[0x70, 0x69, 0x63, 0x6f, 0x43, 0x54, 0x4b, 0x80, 0x6b, 0x35, 0x7a, 0x73,
