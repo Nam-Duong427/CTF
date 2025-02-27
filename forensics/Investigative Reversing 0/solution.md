@@ -70,8 +70,8 @@ for i in  range(0,6) :
 for i in range(6,15) : 
     flag[i] = file[i] - 5
 flag[15] = file[15] + 3 
-for j in range(16,26) : 
-    flag[j] = file[j] 
+for i in range(16,26) : 
+    flag[i] = file[i] 
 r=""    
 for i in flag : 
     r+=chr(i)
