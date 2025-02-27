@@ -48,7 +48,8 @@ int __fastcall main(int argc, const char **argv, const char **envp)
 ```
 According to the pseudocode given : 
 - v8 stands for the image.
-- The image was appended by ptr[i] by fputc(), followed by 26 characters and it means our flag.
+- The image was appended by ptr[i] by fputc()
+- Append followed by 26 characters and it means our flag.
 We just basically follow the code line by line to get the flag.
 
 The flag is 26 characters, so we will take the last 26 bytes in the image.
