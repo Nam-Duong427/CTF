@@ -114,7 +114,7 @@ LAB_004018de:
   return 0;
 }
 ```
-We can immediately see which lines of code is important to bypass the debugger.
+We can immediately see which lines of code is important to bypass the AntiDebugger.
 ```C
   if ((uVar5 & 0xff) == 0) {
     FUN_00401910("### To start the challenge, you\'ll need to first launch this program using a debugger!\n"
@@ -156,7 +156,7 @@ We can immediately see which lines of code is important to bypass the debugger.
 - iVar2 must be 0 to avoid error. 
 - cVar1 must be 0 to go next.
 - If Bvar4 is not 0, then our Debugger will be detected.
-- Otherwise if Bvar4 is indeed 0, the flag will appear means we just bypassed the AntiDebug successfully. 
+- Otherwise if Bvar4 is indeed 0, the flag will appear means we just bypassed the AntiDebugger successfully. 
 
 Now we will open x32dbg to modify these variables.
 ```asm
