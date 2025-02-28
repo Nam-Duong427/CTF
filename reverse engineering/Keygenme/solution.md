@@ -182,7 +182,7 @@ But we need to know where should we jump to debug first.
 We have already now value in 00101400 which is '}' so the ideal breakpoints should be at 001013f9. 
 
 Now run GDB and set breakpoint at 001013f9 then run the code with a random string to jump to it. 
-```asm
+```C++
 gef➤  b *0x5555555553f9
 Breakpoint 1 at 0x5555555553f9
 gef➤  r
