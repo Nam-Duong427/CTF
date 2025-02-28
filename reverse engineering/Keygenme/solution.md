@@ -140,7 +140,7 @@ There is a for loop to put 27 characters "picoCTF{br1ng_y0ur_0wn_k3y_" to auStac
 ```
 So auStack_38 is indeed our flag!
 
-After putting 27 characters into it (which is in 26 position), we can see auStack_38 is being put value from 27 to 35 position.
+After putting 27 characters into it (which is in position 26), we can see auStack_38 is being put value from position 27 to 35.
 ```C
   auStack_38[0x1b] = local_66;
   auStack_38[0x1c] = local_5e;
@@ -152,7 +152,7 @@ After putting 27 characters into it (which is in 26 position), we can see auStac
   auStack_38[0x22] = local_5e;
   auStack_38[0x23] = local_ba[0];
 ```
-So in Ghidra, I can not see these value except the one at 35 position.
+So in Ghidra, I can not see these value except the one at position 35.
 ```C
 local_ba[0] = '}';
 ```
