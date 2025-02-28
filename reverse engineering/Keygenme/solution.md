@@ -132,7 +132,7 @@ builtin_memcpy(local_98,"picoCTF{br1ng_y0ur_0wn_k3y_",0x1c);
 ```
 And now we need to find the rest of it.
 
-After a for loop to put characters "picoCTF{br1ng_y0ur_0wn_k3y_" to auStack_38.
+After a for loop to put 26 characters "picoCTF{br1ng_y0ur_0wn_k3y_" to auStack_38.
 ```C
   for (local_c4 = 0; local_c4 < 0x1b; local_c4 = local_c4 + 1) {
     auStack_38[local_c4] = local_98[local_c4];
