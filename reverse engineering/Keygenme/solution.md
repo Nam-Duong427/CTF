@@ -182,7 +182,7 @@ But we need to know where should we jump to debug first.
 We have already now value in 00101400 which is '}' so the ideal breakpoints should be at 001013f9. 
 
 Now run GDB and set breakpoint at 001013f9 then run the code with a random string to jump to it. 
-```C++
+```asm
 gef➤  b *0x5555555553f9
 Breakpoint 1 at 0x5555555553f9
 gef➤  r
@@ -192,10 +192,7 @@ Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 Enter your license key: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 Final step! just print all it out !
-```C++
-   0x5555555553ef                  mov    BYTE PTR [rbp-0x10], al
-   0x5555555553f2                  movzx  eax, BYTE PTR [rbp-0x64]
-   0x5555555553f6                  mov    BYTE PTR [rbp-0xf], al
+```asm
 ●→ 0x5555555553f9                  movzx  eax, BYTE PTR [rbp-0x56]
    0x5555555553fd                  mov    BYTE PTR [rbp-0xe], al
    0x555555555400                  movzx  eax, BYTE PTR [rbp-0xb2]
