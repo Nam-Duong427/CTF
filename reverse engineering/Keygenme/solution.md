@@ -132,7 +132,7 @@ builtin_memcpy(local_98,"picoCTF{br1ng_y0ur_0wn_k3y_",0x1c);
 ```
 And now we need to find the rest of it.
 
-After a for loop to put 26 characters "picoCTF{br1ng_y0ur_0wn_k3y_" to auStack_38.
+After a for loop to put 27 characters "picoCTF{br1ng_y0ur_0wn_k3y_" to auStack_38.
 ```C
   for (local_c4 = 0; local_c4 < 0x1b; local_c4 = local_c4 + 1) {
     auStack_38[local_c4] = local_98[local_c4];
@@ -140,7 +140,7 @@ After a for loop to put 26 characters "picoCTF{br1ng_y0ur_0wn_k3y_" to auStack_3
 ```
 So auStack_38 is indeed our flag!
 
-After putting 26 characters into it, we can see auStack_38 is being put value from 27 to 35 position.
+After putting 27 characters into it (which is in 26 position), we can see auStack_38 is being put value from 27 to 35 position.
 ```C
   auStack_38[0x1b] = local_66;
   auStack_38[0x1c] = local_5e;
@@ -152,7 +152,7 @@ After putting 26 characters into it, we can see auStack_38 is being put value fr
   auStack_38[0x22] = local_5e;
   auStack_38[0x23] = local_ba[0];
 ```
-So in Ghidra, I can not see these value except at 35 position, local_ba[0] is "}"
+So in Ghidra, I can not see these value except the one at 35 position.
 ```C
 local_ba[0] = '}';
 ```
