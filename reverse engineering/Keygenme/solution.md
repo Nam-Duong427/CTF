@@ -179,7 +179,7 @@ But we need to know where should we jump to debug first.
                  4e  ff  ff  ff
         00101407 88  45  f3       MOV        byte ptr [RBP  + local_15 ],AL
 ```
-We have already now value in 00101400 which is '}' so the ideal breakpoints should be at 001013f9. 
+We have already known value in 00101400 which is '}' so the ideal breakpoints should be at 001013f9. 
 
 Now run GDB and set breakpoint at 001013f9 then run the code with a random string to jump to it. 
 ```C++
@@ -191,7 +191,7 @@ Starting program: /home/kali/Downloads/keygenme
 Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 Enter your license key: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
-Final step! Just print all it out !
+Final step! Just print it out !
 ```asm
 ●→ 0x5555555553f9                  movzx  eax, BYTE PTR [rbp-0x56]
    0x5555555553fd                  mov    BYTE PTR [rbp-0xe], al
