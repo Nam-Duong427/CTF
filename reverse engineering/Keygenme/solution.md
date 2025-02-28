@@ -191,7 +191,7 @@ Starting program: /home/kali/Downloads/keygenme
 Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 Enter your license key: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
-Final step! just print all it out !
+Final step! Just print all it out !
 ```asm
 ●→ 0x5555555553f9                  movzx  eax, BYTE PTR [rbp-0x56]
    0x5555555553fd                  mov    BYTE PTR [rbp-0xe], al
