@@ -157,7 +157,7 @@ And the pseudocode should be like this :
 Good news !! Now just export the edited program and run again.
 Because we have the decrypt flag function get everything done for us. 
 
-Go to File -> Export program -> Choose Orginal File Format then hit OK
+Go to File -> Export program -> Choose Orginal File Format then hit OK.
 
 Now just run as Admin with the new .exe file !!
 
