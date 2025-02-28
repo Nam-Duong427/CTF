@@ -18,7 +18,6 @@ This will take ~30 mins to install any missing DLLs.
 Firstly, we download the file, unzip and see another .pdb file besides the .exe file. 
 
 Run the .exe file as admin.
-
 And a window pops up says that we can not use debugger for this challenge. 
 I tried and it kicks me out of the debugger. Debugger can't help.. 
 
@@ -27,7 +26,6 @@ Open the .exe file in Ghidra
 **Note: Before analyze, please load the .pdb file into it!**
 
 Follow the asm, we can see the file has been packed by UPX.
-
 Now we have to unpack it and re-run in Ghidra.
 
 I use [this](https://github.com/upx/upx/releases/tag/v5.0.0) to unpack the file.
