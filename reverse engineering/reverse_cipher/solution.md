@@ -89,7 +89,7 @@ Through the pseudocode, it clearly says that this program turn the content of fl
   local_9 = local_41;
   fputc((int)local_41,local_28);
 ```
-Because from position 0 to 7 still "picoCTF{" , so we will jump the second for loop!
+Because from position 0 to 7 still "picoCTF{" , so we will jump to the second for loop!
 ```C
   for (j = 8; (int)j < 0x17; j = j + 1) {
     if ((j & 1) == 0) {
