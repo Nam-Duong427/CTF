@@ -66,6 +66,10 @@ Seems like set_timer() is a function that prevent user to be able to go to get_k
 Let's try to delete it it from the program. 
 
 That function is at 00100938.
+```C
+00100938 e8  f2  fe       CALL       set_timer 
+         ff  ff
+```
 Right-click the hit Clear Code Bytes and replace everything in it with NOP by Ctrl+Shift+G. 
 That's how we can remove the function. 
 It should looks like this
