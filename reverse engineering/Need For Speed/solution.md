@@ -91,7 +91,7 @@ undefined8 main(void)
   return 0;
 }
 ```
-And now the set_timer() function has dissapear!
+And now the set_timer() function has dissapeared!
 
 Go to File -> Export Program and save it as Original File. 
 Now just the new program!
