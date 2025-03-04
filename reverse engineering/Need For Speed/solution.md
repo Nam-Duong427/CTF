@@ -94,7 +94,7 @@ undefined8 main(void)
 And now the set_timer() function has dissapeared!
 
 Go to File -> Export Program and save it as Original File. 
-Now just the new program!
+Now just run the new program!
 ```
 └─$ ./need-for-speed
 Keep this thing over 50 mph!
