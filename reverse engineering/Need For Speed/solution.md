@@ -63,7 +63,7 @@ void alarm_handler(void)
 Just a simple function to print a string. 
 Seems like set_timer() is a function that prevent user to be able to go to get_key() and print_flag() function. 
 
-Let's try to delete it it from the program. 
+Let's try to delete it from the program. 
 
 That function is at 00100938.
 ```C
