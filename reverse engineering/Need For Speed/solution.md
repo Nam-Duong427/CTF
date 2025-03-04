@@ -70,11 +70,11 @@ Right-click the hit Clear Code Bytes and replace everything in it with NOP by Ct
 That's how we can remove the function. 
 It should looks like this
 ```asm
-        00100938 90              NOP
-        00100939 90              NOP
-        0010093a 90              NOP
-        0010093b 90              NOP
-        0010093c 90              NOP
+00100938 90              NOP
+00100939 90              NOP
+0010093a 90              NOP
+0010093b 90              NOP
+0010093c 90              NOP
 ```
 ```C
 
