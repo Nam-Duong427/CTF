@@ -228,7 +228,7 @@ Now let's just modify the sVar2! I can find it at 001012c0.
          70  ff  ff  ff
 ```
 Right-click and choose Patch Intruction and set it as local_d8 which is **RBP + -0xd0** that can be easily spotted in ghidra. 
-```C
+```asm
 001012db 48  8d  85       LEA        RAX =>local_d8 ,[RBP  + -0xd0 ]
          30  ff  ff  ff
 
