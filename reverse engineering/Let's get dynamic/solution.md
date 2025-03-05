@@ -278,8 +278,9 @@ gef➤
 All done!
 
 ## Another simple way to solve
-When I spot the main trouble that we need to solve, just implement the same script that we see. 
-I use python for it!
+When I spot the main trouble that we need to solve which is the length, just implement script has same algorithm that we see. 
+
+I use python for it! 
 ```python
 flag=[0]*49
 local_98 = [0]*49
