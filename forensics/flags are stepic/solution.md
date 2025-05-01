@@ -1,4 +1,4 @@
-# flags are stepic
+![image](https://github.com/user-attachments/assets/f9239b21-6e46-42c4-b66d-008215ab15ca)# flags are stepic
 ## Difficulty
 Medium 
 ## Hints 
@@ -13,4 +13,25 @@ The hint tells us that the flag persists in the country that doesn't exist!
 Scroll all the way down, I found a flag called **"Upanzi, Republic The" **
 ![](https://github.com/Nam-Duong427/CTF/blob/main/forensics/flags%20are%20stepic/image.png)
 Moreover, the width and height of the image is larger than others. 
+![](https://github.com/Nam-Duong427/CTF/blob/main/forensics/flags%20are%20stepic/img_size.png)
+So I decide to download the image and check it out if it has any data was hidden by using steganography technique 
+I can tell that this problem has another hint in the title :) 
+
+There is a python library called **stepic** - is used for finding hidden data in a image. 
+[stepic library](https://pypi.org/project/stepic/)
+
+Now let's it handle the rest.. 
+```python
+import stepic
+from PIL import Image
+
+def main():
+    # dont forget to modify your image's location
+    flag_img = Image.open(r'upz.png')
+    print(stepic.decode(flag_img))
+
+if __name__ == "__main__":
+    main()
+```
+
 
