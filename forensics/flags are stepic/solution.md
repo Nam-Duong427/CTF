@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f9239b21-6e46-42c4-b66d-008215ab15ca)# flags are stepic
+# flags are stepic
 ## Difficulty
 Medium 
 ## Hints 
