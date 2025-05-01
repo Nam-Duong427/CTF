@@ -11,3 +11,4 @@ When open the challenge's website, we see alot of flags of countries.
 The hint tells us that the flag persists in the country that doesn't exist!
 
 Scroll all the way down, I found a flag called "Upanzi, Republic The" 
+![](https://github.com/Nam-Duong427/CTF/blob/main/forensics/flags%20are%20stepic/image.png)
