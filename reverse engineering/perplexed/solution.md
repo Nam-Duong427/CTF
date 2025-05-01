@@ -151,7 +151,7 @@ Get back to ghidra, jump to lines where the input string is compared
           local_1c = local_1c + 1;
         }
 ```
-**_local_58** stands for the given hex string to be compared with the input string which is called **param_1** in pseudocode
+**local_58** stands for the given hex string to be compared with the input string which is called **param_1** in pseudocode
 
 We can see that there is an **if statement** is used to compared 2 small statements together, each statement takes one by one element in each string and performs AND bitwise operator and return a value
 
