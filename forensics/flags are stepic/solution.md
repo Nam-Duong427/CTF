@@ -29,7 +29,6 @@ import stepic
 from PIL import Image
 
 def main():
-    # dont forget to modify your image's location
     flag_img = Image.open(r'upz.png')
     print(stepic.decode(flag_img))
 
