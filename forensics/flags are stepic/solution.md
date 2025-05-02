@@ -14,7 +14,7 @@ Scroll all the way down, I found a flag called **"Upanzi, Republic The"**
 
 ![](https://github.com/Nam-Duong427/CTF/blob/main/forensics/flags%20are%20stepic/image.png)
 
-Moreover, the width and height of the image is larger than others. 
+Moreover, the width and height of the image are larger than others. 
 
 ![](https://github.com/Nam-Duong427/CTF/blob/main/forensics/flags%20are%20stepic/img_size.png)
 
